@@ -1,0 +1,41 @@
+﻿<Page x:Class="AMLA.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AMLA"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page2">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,41,0,0" TextWrapping="Wrap" Text="About Us" VerticalAlignment="Top" Height="49" Width="301" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="
+                   The ratio between accessible data and accessible machine learning capabilities are very different considering the vast amount of data present. Those without the knowledge of how to implement machine learning for their data are left without any solutions to take advantage of machine learning's capabilities.
+                   " VerticalAlignment="Top" Height="97" Width="650" FontSize="16" TextAlignment="Left"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,197,0,0" TextWrapping="Wrap" Text="
+                   We believe that the power of machine learning algorithms should be accessible to all, so that even those without extensive training in implementing them can make a difference in the world.
+                   " VerticalAlignment="Top" Height="73" Width="650" FontSize="16" TextAlignment="Left"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,275,0,0" TextWrapping="Wrap" Text="Requirements" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,313,0,0" TextWrapping="Wrap" Text="Minimum Hardware" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Center" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,340,0,0" TextWrapping="Wrap" Text="- 64 bit Windows 10" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,362,0,0" TextWrapping="Wrap" Text="- 2GB RAM" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,384,0,0" TextWrapping="Wrap" Text="- 5 GB Disk Space" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,406,0,0" TextWrapping="Wrap" Text="- 480p Display" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="214,313,0,0" TextWrapping="Wrap" Text="User Requirements" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Center" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="384,301,0,0" TextWrapping="Wrap" Text="Application Requirements" VerticalAlignment="Top" Width="149" Height="45" TextAlignment="Center" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="576,300,0,0" TextWrapping="Wrap" Text="Algorithm Requirements" VerticalAlignment="Top" Width="149" Height="40" TextAlignment="Center" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="214,340,0,0" TextWrapping="Wrap" Text="- Ability to navigate UI" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="214,362,0,0" TextWrapping="Wrap" Text="- Ability to edit .csv files" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="384,340,0,0" TextWrapping="Wrap" Text="- .NET Framework" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="384,362,0,0" TextWrapping="Wrap" Text="- Permissions to read and write files" VerticalAlignment="Top" Width="149" Height="40" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="576,340,0,0" TextWrapping="Wrap" Text="- Genetic" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="576,362,0,0" TextWrapping="Wrap" Text="- Naive Bayes" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="576,384,0,0" TextWrapping="Wrap" Text="- Linear Regression" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="576,406,0,0" TextWrapping="Wrap" Text="- Apriori" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="576,428,0,0" TextWrapping="Wrap" Text="- CART" VerticalAlignment="Top" Width="149" Height="22" TextAlignment="Left" FontSize="14"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" Height="40" Width="118" Click="ToHome_Click"/>
+
+
+    </Grid>
+</Page>
