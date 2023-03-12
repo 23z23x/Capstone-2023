@@ -77,7 +77,7 @@ namespace AMLA
                 IDataView testData = trainTestSplit.TestSet;
 
                 // define the pipeline
-                var pipeline = mlContext.Transforms.Conversion.MapValueToKey("Label", SentimentData)
+                var pipeline = mlContext.Transforms.Conversion.MapValueToKey("Label", "placeholder")
                     .Append(mlContext.Transforms.Text.FeaturizeText("Features", new TextFeaturizingEstimator.Options
                     {
                         OutputTokensColumnName = "Words",

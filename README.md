@@ -10,4 +10,6 @@ Building The Project:
 
 	Dependencies for Genetic Algorithm : Genetic Sharp
 
+	Dependencies for Naive Bayes : Microsoft.ML
+
 	You can install all dependencies using the NuGet package manager for the .NET framework
