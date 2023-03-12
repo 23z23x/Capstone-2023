@@ -47,5 +47,16 @@ namespace AMLA
 
             frame.NavigationService.Navigate(about);
         }
+
+        private void ToBayes_Click(object sender, RoutedEventArgs e)
+        {
+            var parentWindow = Window.GetWindow(this);
+
+            var frame = parentWindow.FindName("MainFrame") as Frame;
+
+            Page4 about = new Page4();
+
+            frame.NavigationService.Navigate(about);
+        }
     }
 }

@@ -101,7 +101,6 @@ namespace AMLA
             if(openFileDialog.ShowDialog() == true) 
             {
                 string file = openFileDialog.FileName;
-                MessageBox.Show(file, "Filename", MessageBoxButton.OK);
 
                 //get number of lines in file
 

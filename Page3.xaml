@@ -15,8 +15,8 @@
                    " Margin="72,63,72,301" FontSize="15"/>
         <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="
                    To start, upload a .csv file with two or more starter genes. Then, specify the number of iterations and a fitness function from the list below.
-                   " VerticalAlignment="Top" Height="68" Width="656" Margin="0,157,0,0" FontSize="15"/>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="27,13,0,0" VerticalAlignment="Top" Height="37" Width="109" Click="ToHome_Click"/>
+                   " VerticalAlignment="Top" Height="68" Width="656" Margin="0,149,0,0" FontSize="15"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToHome_Click"/>
         <RadioButton Content="Largest Sum" HorizontalAlignment="Left" Margin="46,251,0,0" VerticalAlignment="Top" Height="16" Width="150" GroupName="fitness" Checked="Radio_Checked"/>
         <TextBlock HorizontalAlignment="Left" Margin="76,230,0,0" TextWrapping="Wrap" Text="Fitness Function" VerticalAlignment="Top" Width="90"/>
         <RadioButton Content="Closest sum to value t" HorizontalAlignment="Left" Margin="46,272,0,0" VerticalAlignment="Top" Height="16" Width="150" GroupName="fitness" Checked="Radio_Checked"/>

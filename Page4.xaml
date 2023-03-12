@@ -9,6 +9,24 @@
       Title="Page4">
 
     <Grid>
-        
+        <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToHome_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,23,0,0" TextWrapping="Wrap" Text="Naive Bayes" VerticalAlignment="Top" Height="47" Width="356" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,63,0,0" TextWrapping="Wrap" Text="
+                   Naive Bayes is a machine learning algorithm that determines an outcome based on previous events. It uses Bayes' theorem, which describes the probability of an event given prior knowledge of conditions. Given a list of previous events and their outcomes, this algorithm attempts to predict what will happen when provided a new set of conditions.
+                   " VerticalAlignment="Top" Height="86" Width="652" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,149,0,0" TextWrapping="Wrap" Text="
+                   To start, upload a csv file where the first line is the name of your conditions, and the following lines are the values they held, followed by their outcome as the last element. Then input a query into the box.
+                   " VerticalAlignment="Top" Height="65" Width="652" FontSize="15"/>
+        <Button Content="Click to upload file" HorizontalAlignment="Left" Margin="51,281,0,0" VerticalAlignment="Top" Width="182" x:Name="uploadfile" Click="FileButton_Clicked"/>
+        <RichTextBox Margin="51,317,567,78">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Enter your query here. (Comma separated, no spaces)" x:Name="querybox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="434,344,0,0" TextWrapping="Wrap" Text="Your Result Will Apear here" VerticalAlignment="Top" Height="28" Width="266" FontSize="18" TextAlignment="Center"/>
+        <Button Content="Calculate" HorizontalAlignment="Left" Margin="434,267,0,0" VerticalAlignment="Top" Height="38" Width="266" Click="CalcButton_Clicked"/>
+
     </Grid>
 </Page>
