@@ -11,7 +11,7 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,54,0,0" TextWrapping="Wrap" Text="Wanna learn more about your data?" FontSize="18" VerticalAlignment="Top" Height="73" Width="402" TextAlignment="Center"/>
         <TextBlock TextWrapping="Wrap" Text="Algorithms" Margin="51,127,567,189" TextAlignment="Center" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Genetic" HorizontalAlignment="Left" Margin="76,163,0,0" VerticalAlignment="Top" Height="31" Width="106"/>
+        <Button Content="Genetic" HorizontalAlignment="Left" Margin="76,163,0,0" VerticalAlignment="Top" Height="31" Width="106" Click="ToGenetic_Click"/>
         <Button Content="Naive Bayes" HorizontalAlignment="Left" Margin="76,194,0,0" VerticalAlignment="Top" Height="31" Width="106"/>
         <Button Content="Linear Regression" HorizontalAlignment="Left" Margin="76,225,0,0" VerticalAlignment="Top" Height="31" Width="106"/>
         <Button Content="Apriori" HorizontalAlignment="Left" Margin="76,256,0,0" VerticalAlignment="Top" Height="31" Width="106"/>

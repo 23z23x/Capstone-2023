@@ -1,0 +1,36 @@
+﻿<Page x:Class="AMLA.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AMLA"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page3">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="Genetic Algorithm" VerticalAlignment="Top" Height="52" Width="440" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock TextWrapping="Wrap" Text="
+                   The genetic algorithm seeks to find the most optimal solution to a problem modeled by a gene, or a string that represents certain attributes of that solution. By Evaluating multiple genes and, 'killing' the weak ones, then allowing the strong ones to. 'reproduce' the genetic algorithm grows closer to an optimal solution with each iteration.
+                   " Margin="72,63,72,301" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="
+                   To start, upload a .csv file with two or more starter genes. Then, specify the number of iterations and a fitness function from the list below.
+                   " VerticalAlignment="Top" Height="68" Width="656" Margin="0,157,0,0" FontSize="15"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="27,13,0,0" VerticalAlignment="Top" Height="37" Width="109" Click="ToHome_Click"/>
+        <RadioButton Content="Largest Sum" HorizontalAlignment="Left" Margin="46,251,0,0" VerticalAlignment="Top" Height="16" Width="150" GroupName="fitness" Checked="Radio_Checked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,230,0,0" TextWrapping="Wrap" Text="Fitness Function" VerticalAlignment="Top" Width="90"/>
+        <RadioButton Content="Closest sum to value t" HorizontalAlignment="Left" Margin="46,272,0,0" VerticalAlignment="Top" Height="16" Width="150" GroupName="fitness" Checked="Radio_Checked"/>
+        <RadioButton Content="Smallest Sum" HorizontalAlignment="Left" Margin="46,293,0,0" VerticalAlignment="Top" Height="16" Width="150" GroupName="fitness" Checked="Radio_Checked"/>
+        <Button Content="Click to upload file" HorizontalAlignment="Left" Margin="51,333,0,0" VerticalAlignment="Top" Width="145" x:Name="uploadfile" Click="FileButton_Clicked"/>
+        <TextBox TextWrapping="Wrap" Text="" Margin="121,373,606,56" x:Name="ginput"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,375,0,0" TextWrapping="Wrap" Text="Generations: " VerticalAlignment="Top" Width="77" FontSize="13"/>
+        <TextBlock TextWrapping="Wrap" Text="T Value: " Margin="39,399,684,30" Visibility="Hidden" x:Name="Tlabel"/>
+        <TextBox HorizontalAlignment="Left" Margin="121,402,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" Height="18" Visibility="Hidden" x:Name="Tinput"/>
+        <Button Content="Evaluate" HorizontalAlignment="Left" Margin="489,230,0,0" VerticalAlignment="Top" Height="61" Width="154" Click="EvaluateButton_Clicked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,321,0,0" TextWrapping="Wrap" Text="Result will appear here" VerticalAlignment="Top" Height="63" Width="328" FontSize="18" TextAlignment="Center" x:Name="result"/>
+
+
+
+
+    </Grid>
+</Page>

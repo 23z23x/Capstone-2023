@@ -1,11 +1,39 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "GeneticSharp/3.1.4": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/GeneticSharp.Domain.dll": {},
+          "lib/net6.0/GeneticSharp.Infrastructure.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/GeneticSharp.Domain.dll": {},
+          "lib/net6.0/GeneticSharp.Infrastructure.Framework.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GeneticSharp/3.1.4": {
+      "sha512": "U7NfUCVoiX0tKl6uvN7QGj6rHiM+jWRip+SbWYwG8RqZZcTwCBWO5IPwgKhSnh0vjV/LzRMUBEuSiZKAPl6I+Q==",
+      "type": "package",
+      "path": "geneticsharp/3.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "geneticsharp.3.1.4.nupkg.sha512",
+        "geneticsharp.nuspec",
+        "lib/net6.0/GeneticSharp.Domain.dll",
+        "lib/net6.0/GeneticSharp.Infrastructure.Framework.dll"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "GeneticSharp >= 3.1.4"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\1zach\\.nuget\\packages\\": {}
@@ -45,6 +73,12 @@
     "frameworks": {
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
+        "dependencies": {
+          "GeneticSharp": {
+            "target": "Package",
+            "version": "[3.1.4, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

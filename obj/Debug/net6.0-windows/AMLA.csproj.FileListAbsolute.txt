@@ -23,3 +23,8 @@ C:\Users\1zach\source\repos\Capstone-2023\obj\Debug\net6.0-windows\AMLA.genrunti
 C:\Users\1zach\source\repos\Capstone-2023\obj\Debug\net6.0-windows\ref\AMLA.dll
 C:\Users\1zach\source\repos\Capstone-2023\obj\Debug\net6.0-windows\Page2.g.cs
 C:\Users\1zach\source\repos\Capstone-2023\obj\Debug\net6.0-windows\Page2.baml
+C:\Users\1zach\source\repos\Capstone-2023\bin\Debug\net6.0-windows\GeneticSharp.Domain.dll
+C:\Users\1zach\source\repos\Capstone-2023\bin\Debug\net6.0-windows\GeneticSharp.Infrastructure.Framework.dll
+C:\Users\1zach\source\repos\Capstone-2023\obj\Debug\net6.0-windows\Page3.g.cs
+C:\Users\1zach\source\repos\Capstone-2023\obj\Debug\net6.0-windows\Page3.baml
+C:\Users\1zach\source\repos\Capstone-2023\obj\Debug\net6.0-windows\AMLA.csproj.CopyComplete

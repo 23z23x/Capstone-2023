@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "p6jiH2/HvGAmvNw9nrEeqEzOi7Gh/NxrNa6sRufkCKCZqIosHywbhNt0vVHVJuHys+HAv/LFVGh/3Ayhn89ANg==",
+  "dgSpecHash": "/ZUt8HslNvHevAtCdEtOVXb3Rc4bqWAG+2oNWanezoKCFbAWzxKaxpsN21csIZkbPJjL9NJ3ok/lW9BZuWTp+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\1zach\\source\\repos\\Capstone-2023\\AMLA.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\1zach\\.nuget\\packages\\geneticsharp\\3.1.4\\geneticsharp.3.1.4.nupkg.sha512"
+  ],
   "logs": []
 }
