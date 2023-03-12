@@ -1,2 +1,13 @@
 .vs/
 bin/
+.vs/AMLA/DesignTimeBuild/.dtbcache.v2
+.vs/AMLA/FileContentIndex/541874a2-150c-4763-ab86-15d0cf9382fc.vsidx
+.vs/AMLA/FileContentIndex/541874a2-150c-4763-ab86-15d0cf9382fc.vsidx
+.vs/AMLA/FileContentIndex/541874a2-150c-4763-ab86-15d0cf9382fc.vsidx
+.vs/AMLA/v17/.suo
+bin/Debug/net6.0-windows/AMLA.dll
+bin/Debug/net6.0-windows/AMLA.pdb
+obj/Debug/net6.0-windows/AMLA.dll
+obj/Debug/net6.0-windows/AMLA.g.resources
+*.pdb
+obj/
