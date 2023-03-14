@@ -1,4 +1,4 @@
-# Capstone-2023 ~ Accessible Machine Learning Library ~ AMLA
+# Capstone-2023 ~ Accessible Machine Learning Application ~ AMLA
 
 # By ~ Kees Kint ~ Zachary Summers ~ Clayton Jones ~ (Clayton's Crushers)
 
