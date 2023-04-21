@@ -58,5 +58,17 @@ namespace AMLA
 
             frame.NavigationService.Navigate(about);
         }
+
+        private void ToReg_Click(object sender, RoutedEventArgs e)
+        {
+            var parentWindow = Window.GetWindow(this);
+
+            var frame = parentWindow.FindName("MainFrame") as Frame;
+
+            Page5 about = new Page5();
+
+            frame.NavigationService.Navigate(about);
+
+        }
     }
 }
