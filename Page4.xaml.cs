@@ -1,4 +1,5 @@
 ﻿using GeneticSharp;
+using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.ML;
-using Microsoft.ML.Data;
-using Microsoft.ML.Transforms.Text;
+using Accord.Statistics.Filters;
+using Accord.Statistics.Models.Regression;
+using Accord.Statistics.Models.Regression.Fitting;
+using Accord.Statistics.Analysis;
+using Accord.Math;
+using Accord.MachineLearning.Bayes;
+using Accord.MachineLearning;
+
+
+
 
 namespace AMLA
 {
@@ -52,61 +60,58 @@ namespace AMLA
         private void CalcButton_Clicked(object sender, RoutedEventArgs e)
         {
 
-            if(filegood)
+            if (filegood)
             {
 
                 // First, test if the user's query exists and if it is formatted correctly
                 string query = querybox.Text;
+                string[] queries = query.Split(',');
 
-                if(query.Split(',').Length != leng - 1) 
+                if (queries.Length != leng - 1)
                 {
                     MessageBox.Show("Invalid Query Format", "Invalid Query", MessageBoxButton.OK);
                     return;
                 }
 
-                // set up a new MLContext
-                MLContext mlContext = new MLContext();
+                //read data from file into table
+                DataTable data = GetDataSourceFromFile(filename);
 
-                // load the data into an IDataView
-                IDataView dataView = mlContext.Data.LoadFromTextFile<SentimentData>(
-                    filename, separatorChar: ',', hasHeader: true);
+                //Also, get new Codification using headers
+                List<string> categories = new List<string>();
 
-                // split the data into training and testing sets
-                var trainTestSplit = mlContext.Data.TrainTestSplit(dataView, testFraction: 0.2);
-                IDataView trainData = trainTestSplit.TrainSet;
-                IDataView testData = trainTestSplit.TestSet;
-
-                // define the pipeline
-                var pipeline = mlContext.Transforms.Conversion.MapValueToKey("Label", "placeholder")
-                    .Append(mlContext.Transforms.Text.FeaturizeText("Features", new TextFeaturizingEstimator.Options
-                    {
-                        OutputTokensColumnName = "Words",
-                        CharFeatureExtractor = new WordBagEstimator.Options
-                        {
-                            NgramLength = 2,
-                            UseAllLengths = true
-                        }
-                    }))
-                    .Append(mlContext.Transforms.NormalizeLpNorm("Features"))
-                    .Append(mlContext.Transforms.Conversion.MapKeyToValue("Sentiment"));
-
-                // train the model
-                var trainedModel = pipeline.Fit(trainData);
-
-                // evaluate the model
-                var predictions = trainedModel.Transform(testData);
-                var metrics = mlContext.MulticlassClassification.Evaluate(predictions);
-
-                // make a prediction
-                var predictionEngine = mlContext.Model.CreatePredictionEngine<SentimentData, SentimentPrediction>(trainedModel);
-                var prediction = predictionEngine.Predict(new SentimentData
+                foreach(DataColumn column in data.Columns)
                 {
-                    Features = new string[] { query }
-                });
-                resultbox.Text = prediction.PredictedSentiment;
+                    categories.Add(column.ToString());
+                }
+
+
+                Codification code = new Codification(data, categories.ToArray());
+
+                //consider all before last as inputs and last as output
+                DataTable symbols = code.Apply(data);
+                string last = categories.Last();
+                int[] outputs = symbols.ToArray<int>(last);
+                categories.RemoveAt(categories.Count - 1);
+                int[][] inputs = symbols.ToArray<int>(categories.ToArray());
+
+                // Create a new Naive Bayes learning
+                var learner = new NaiveBayesLearning();
+
+                // Learn a Naive Bayes model from the examples
+                NaiveBayes nb = learner.Learn(inputs, outputs);
+
+                //Translate using codebook
+                int[] request = code.Translate(queries);
+
+                int c = nb.Decide(request);
+
+                string result = code.Translate(last, c);
+
+                resultbox.Text = "Your query is estimated to be: " + result;
+
             }
 
-            
+
         }
 
         private void FileButton_Clicked(object sender, RoutedEventArgs e)
@@ -136,7 +141,15 @@ namespace AMLA
                         string[] parts = line.Split(',');
                         length = parts.Length;
                         leng = length;
-                        
+
+                        if (leng > 7 || leng < 4)
+                        {
+                            uploadfile.Content = "Invalid File";
+                            MessageBox.Show("Please check file for correct format. Rows must have 3 to 6 variables followed by 1 result", "Invalid File", MessageBoxButton.OK);
+                            filegood = false;
+                            return;
+                        }
+
                     }
                     else
                     {
@@ -178,24 +191,54 @@ namespace AMLA
 
         }
 
+        public static int[][] ConvertToArrayOfArrays(int[,] matrix)
+        {
+            int numRows = matrix.GetLength(0);
+            int numCols = matrix.GetLength(1);
+
+            int[][] arrayOfArrays = new int[numRows][];
+            for (int i = 0; i < numRows; i++)
+            {
+                arrayOfArrays[i] = new int[numCols];
+                for (int j = 0; j < numCols; j++)
+                {
+                    arrayOfArrays[i][j] = matrix[i, j];
+                }
+            }
+
+            return arrayOfArrays;
+        }
+
+        public DataTable GetDataSourceFromFile(string fileName)
+        {
+            DataTable dt = new DataTable();
+            string[] columns = null;
+
+            var lines = File.ReadAllLines(fileName);
+
+            // assuming the first row contains the columns information
+            if (lines.Count() > 0)
+            {
+                columns = lines[0].Split(new char[] { ',' });
+
+                foreach (var column in columns)
+                    dt.Columns.Add(column);
+            }
+
+            // reading rest of the data
+            for (int i = 1; i < lines.Count(); i++)
+            {
+                DataRow dr = dt.NewRow();
+                string[] values = lines[i].Split(new char[] { ',' });
+
+                for (int j = 0; j < values.Count() && j < columns.Count(); j++)
+                    dr[j] = values[j];
+
+                dt.Rows.Add(dr);
+            }
+            return dt;
+        }
+
+
     }
-
-    public class SentimentData
-    {
-        int len;
-
-        [LoadColumn(0)]
-        public string Sentiment { get; set; }
-
-        [LoadColumn(1, 4)]
-        public string[] Features { get; set; }
-    }
-
-    public class SentimentPrediction
-    {
-        [ColumnName("PredictedLabel")]
-        public string PredictedSentiment;
-    }
-
-
 }
