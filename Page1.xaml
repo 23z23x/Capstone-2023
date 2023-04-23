@@ -14,8 +14,8 @@
         <Button Content="Genetic" HorizontalAlignment="Left" Margin="76,163,0,0" VerticalAlignment="Top" Height="31" Width="106" Click="ToGenetic_Click"/>
         <Button Content="Naive Bayes" HorizontalAlignment="Left" Margin="76,194,0,0" VerticalAlignment="Top" Height="31" Width="106" Click="ToBayes_Click"/>
         <Button Content="Linear Regression" HorizontalAlignment="Left" Margin="76,225,0,0" VerticalAlignment="Top" Height="31" Width="106" Click="ToReg_Click"/>
-        <Button Content="Apriori" HorizontalAlignment="Left" Margin="76,256,0,0" VerticalAlignment="Top" Height="31" Width="106"/>
-        <Button Content="CART" HorizontalAlignment="Left" Margin="76,287,0,0" VerticalAlignment="Top" Height="30" Width="106"/>
+        <Button Content="Apriori" HorizontalAlignment="Left" Margin="76,256,0,0" VerticalAlignment="Top" Height="31" Width="106" Click="ToApriori_Click"/>
+        <Button Content="CART" HorizontalAlignment="Left" Margin="76,287,0,0" VerticalAlignment="Top" Height="30" Width="106" Click="ToCART_Click"/>
         <Button Content="About Us" FontSize="20" HorizontalAlignment="Left" Margin="552,218,0,0" VerticalAlignment="Top" Height="46" Width="159" Click="ToAbout_Click"/>
 
     </Grid>

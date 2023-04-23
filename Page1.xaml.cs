@@ -70,5 +70,30 @@ namespace AMLA
             frame.NavigationService.Navigate(about);
 
         }
+
+        private void ToApriori_Click(object sender, RoutedEventArgs e)
+        {
+            var parentWindow = Window.GetWindow(this);
+
+            var frame = parentWindow.FindName("MainFrame") as Frame;
+
+            Page6 about = new Page6();
+
+            frame.NavigationService.Navigate(about);
+
+        }
+
+        private void ToCART_Click(object sender, RoutedEventArgs e)
+        {
+            var parentWindow = Window.GetWindow(this);
+
+            var frame = parentWindow.FindName("MainFrame") as Frame;
+
+            Page7 about = new Page7();
+
+            frame.NavigationService.Navigate(about);
+
+        }
+
     }
 }

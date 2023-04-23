@@ -1,0 +1,31 @@
+﻿<Page x:Class="AMLA.Page7"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AMLA"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page7">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="CART" VerticalAlignment="Top" Height="52" Width="440" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock TextWrapping="Wrap" Text="
+                   Classification and Regression Trees work by taking input data and using it to decide an outcome based on what is given. The tree should resemble a flow chart, where decisions are made based on data and a conclusion is reached by finding the end of the chart. The output will be the result of following this flow chart created with your input.
+                   " Margin="72,63,72,301" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="
+                   To start, upload a .csv file that contains data and an outcome from that data (likely taken from an experiment). Then, upload a set of conditions, comma seperated.
+                   " VerticalAlignment="Top" Height="68" Width="656" Margin="0,149,0,0" FontSize="15"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToHome_Click"/>
+        <Button Content="Click to upload file" HorizontalAlignment="Left" Margin="72,276,0,0" VerticalAlignment="Top" Width="145" x:Name="uploadfile" Click="FileButton_Clicked"/>
+        <RichTextBox Margin="72,316,583,79">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Enter your query here" x:Name="querybox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button Content="Evaluate" HorizontalAlignment="Left" Margin="487,260,0,0" VerticalAlignment="Top" Height="61" Width="154" Click="EvaluateButton_Clicked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="400,344,0,0" TextWrapping="Wrap" Text="Result will appear here" VerticalAlignment="Top" Height="62" Width="328" FontSize="18" TextAlignment="Center" x:Name="result"/>
+    </Grid>
+</Page>
