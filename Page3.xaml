@@ -22,10 +22,10 @@
         <RadioButton Content="Closest sum to value t" HorizontalAlignment="Left" Margin="46,272,0,0" VerticalAlignment="Top" Height="16" Width="150" GroupName="fitness" Checked="Radio_Checked"/>
         <RadioButton Content="Smallest Sum" HorizontalAlignment="Left" Margin="46,293,0,0" VerticalAlignment="Top" Height="16" Width="150" GroupName="fitness" Checked="Radio_Checked"/>
         <Button Content="Click to upload file" HorizontalAlignment="Left" Margin="51,333,0,0" VerticalAlignment="Top" Width="145" x:Name="uploadfile" Click="FileButton_Clicked"/>
-        <TextBox TextWrapping="Wrap" Text="" Margin="121,373,606,56" x:Name="ginput"/>
+        <TextBox HorizontalAlignment="Left" Margin="121,369,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="20" Height="29" Visibility="Visible" x:Name="ginput"/>
         <TextBlock HorizontalAlignment="Left" Margin="39,375,0,0" TextWrapping="Wrap" Text="Generations: " VerticalAlignment="Top" Width="77" FontSize="13"/>
-        <TextBlock TextWrapping="Wrap" Text="T Value: " Margin="39,399,684,30" Visibility="Hidden" x:Name="Tlabel"/>
-        <TextBox HorizontalAlignment="Left" Margin="121,402,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" Height="18" Visibility="Hidden" x:Name="Tinput"/>
+        <TextBlock TextWrapping="Wrap" Text="T Value: " Margin="39,409,684,20" Visibility="Visible" x:Name="Tlabel" FontSize="13"/>
+        <TextBox HorizontalAlignment="Left" Margin="121,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="20" Height="29" Visibility="Visible" x:Name="Tinput"/>
         <Button Content="Evaluate" HorizontalAlignment="Left" Margin="489,230,0,0" VerticalAlignment="Top" Height="61" Width="154" Click="EvaluateButton_Clicked"/>
         <TextBlock HorizontalAlignment="Left" Margin="400,321,0,0" TextWrapping="Wrap" Text="Result will appear here" VerticalAlignment="Top" Height="63" Width="328" FontSize="18" TextAlignment="Center" x:Name="result"/>
 

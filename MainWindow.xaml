@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AMLA"
         mc:Ignorable="d"
-        Title="AMLA" Height="450" Width="800">
+        Title="AMLA" Height="668" Width="972">
     <Grid>
         <TextBlock TextWrapping="Wrap" Text="Accessible Machine Learning Application" FontSize="20" TextAlignment="Center"/>
         <Frame x:Name="MainFrame" Source="Page1.xaml" HorizontalAlignment="Center" FontWeight="Bold" Width="780" Margin="0,33,0,10" NavigationUIVisibility="Hidden"/>

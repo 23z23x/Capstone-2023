@@ -17,7 +17,5 @@ Building The Project:
 
 TO DO:
 
-	UI overhaul for Genetic and Naive Bayes
-
 	More input testing for Genetic and Naive Bayes (Specifically column headers in Naive Bayes)
 
