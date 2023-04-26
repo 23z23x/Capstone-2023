@@ -27,6 +27,6 @@
         </RichTextBox>
         <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="410,344,0,0" TextWrapping="Wrap" Text="Your Result Will Apear here" VerticalAlignment="Top" Height="62" Width="314" FontSize="18" TextAlignment="Center"/>
         <Button Content="Calculate" HorizontalAlignment="Left" Margin="434,267,0,0" VerticalAlignment="Top" Height="38" Width="266" Click="CalcButton_Clicked"/>
-
+        <Button Content="More Info" HorizontalAlignment="Left" Margin="661,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToNaiveBayesExplanation_Click"/>
     </Grid>
 </Page>

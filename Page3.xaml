@@ -28,7 +28,7 @@
         <TextBox HorizontalAlignment="Left" Margin="121,405,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="20" Height="29" Visibility="Visible" x:Name="Tinput"/>
         <Button Content="Evaluate" HorizontalAlignment="Left" Margin="489,230,0,0" VerticalAlignment="Top" Height="61" Width="154" Click="EvaluateButton_Clicked"/>
         <TextBlock HorizontalAlignment="Left" Margin="400,321,0,0" TextWrapping="Wrap" Text="Result will appear here" VerticalAlignment="Top" Height="63" Width="328" FontSize="18" TextAlignment="Center" x:Name="result"/>
-
+        <Button Content="More Info" HorizontalAlignment="Left" Margin="661,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToGeneticExplanation_Click"/>
 
 
 

@@ -1,0 +1,24 @@
+﻿<Page x:Class="AMLA.GeneticExplanation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AMLA"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GeneticExplanation">
+
+    <Grid>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToGenetic_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="Genes" VerticalAlignment="Top" Height="52" Width="440" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock TextWrapping="Wrap" Text="
+                    A gene is a numerical representation of some trait that a potential solution to your problem has. Because genes are compared against eachother for a solution, all genes must be the same length. A valid gene representation in your file is something like this - 
+                   " Margin="72,63,72,301" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="
+                   1,5,4,3,2,4
+                   " VerticalAlignment="Top" Height="68" Width="656" Margin="0,149,0,0" FontSize="25" TextAlignment="Center"/>
+        <TextBlock TextWrapping="Wrap" Text="
+                    Keep in mind that the maximum value a gene can take on is defined by the highest value of that gene in your file, and same for the lowest. for example, if you input two genes, 1,2,2 and 3,2,1, the highest value the first gene can take is 3, and the lowest is 1. However, the second gene can only take on the gene 2.
+                   " Margin="72,197,72,167" FontSize="15"/>
+    </Grid>
+</Page>

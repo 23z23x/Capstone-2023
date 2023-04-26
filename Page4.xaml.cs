@@ -46,6 +46,17 @@ namespace AMLA
             filegood = false;
         }
 
+        private void ToNaiveBayesExplanation_Click(object sender, RoutedEventArgs e)
+        {
+            var parentWindow = Window.GetWindow(this);
+
+            var frame = parentWindow.FindName("MainFrame") as Frame;
+
+            NaiveBayesExplanation home = new NaiveBayesExplanation();
+
+            frame.NavigationService.Navigate(home);
+        }
+
         private void ToHome_Click(object sender, RoutedEventArgs e)
         {
             var parentWindow = Window.GetWindow(this);

@@ -58,6 +58,17 @@ namespace AMLA
             frame.NavigationService.Navigate(home);
         }
 
+        private void ToGeneticExplanation_Click(object sender, RoutedEventArgs e)
+        {
+            var parentWindow = Window.GetWindow(this);
+
+            var frame = parentWindow.FindName("MainFrame") as Frame;
+
+            GeneticExplanation about = new GeneticExplanation();
+
+            frame.NavigationService.Navigate(about);
+        }
+
         private void Radio_Checked(object sender, RoutedEventArgs e)
         {
             var button = sender as RadioButton;

@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="GeneticExplanation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NaiveBayesExplanation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Page1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,7 +30,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="GeneticExplanation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NaiveBayesExplanation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Page1.xaml">
