@@ -23,6 +23,10 @@ using System.Data;
 using OfficeOpenXml;
 using System.Globalization;
 using Accord.Math.Optimization.Losses;
+using OxyPlot;
+using OxyPlot.Wpf;
+using OxyPlot.Series;
+using OxyPlot.Axes;
 
 namespace AMLA
 {
@@ -69,15 +73,24 @@ namespace AMLA
                     int columnCount = worksheet.Dimension.Columns; // gather column dimensions
                     int[] valid = new int[columnCount]; // array to hold column len for each column
                     int numRows = 0;
+                    object valTest = 0;
 
                     for(int col = 1; col <= columnCount; col++)
                     {
                         for(int row = 1; row <= rowCount; row++) 
                         {
-                            if (!string.IsNullOrEmpty(worksheet.Cells[row, col].Text)) // iterate through each columns rows and check for valid row value
+                            valTest = worksheet.Cells[row, col].Value;
+                            if (!string.IsNullOrEmpty(worksheet.Cells[row, col].Text) && (valTest is double || valTest is int)) // iterate through each columns rows and check for valid row value
                             {
                                 numRows++;
                                 valid[col - 1] = numRows;
+                            }
+                            else
+                            {
+                                uploadfile.Content = "Invalid File";
+                                MessageBox.Show("Please check file for correct format. All values must be of decimal type", "Invalid File", MessageBoxButton.OK);
+                                filegood = false;
+                                return;
                             }
 
                         }
@@ -128,10 +141,36 @@ namespace AMLA
                 // Get an expression representing the learned regression model
                 // We just have to remember that 'x' will actually mean 'log(x)'
                 string result = lr.ToString("N4", CultureInfo.InvariantCulture);
+                double slope = lr.Slope;
+                double intercept = lr.Intercept;
 
                 // The mean squared error between the expected and the predicted is
                 double error = new SquareLoss(outputs).Loss(predicted);
-                resultbox.Text = error.ToString();
+                resultbox.Text = "Learned Regression Model: " + result + "\nSlope: " + slope + "\nIntercept: " + intercept + "\nMean Squared Error: " + error.ToString();
+
+                PlotView plotView = new PlotView();
+
+                // Create a new plot model
+                PlotModel plotModel = new PlotModel();
+                plotModel.Title = "My Plot";
+                plotModel.PlotType = PlotType.XY;
+
+                ScatterSeries inputs_plot = new ScatterSeries();
+                //inputs_plot.Title = "Inputs ";
+                inputs_plot.MarkerType = MarkerType.Circle;
+                inputs_plot.MarkerSize = 5;
+
+                for(int i = 0; i < outputs.Length; i++)
+                {
+                    inputs_plot.Points.Add(new ScatterPoint(inputs[i], predicted[i]));
+                }
+                plotModel.Series.Add(inputs_plot);
+
+                // Customize the appearance of the plot
+                plotModel.Axes.Add(new LinearAxis { Title = "Inputs", Position = AxisPosition.Bottom });
+                plotModel.Axes.Add(new LinearAxis { Title = "Predicted Ouputs", Position = AxisPosition.Left });
+
+                plotView.Model = plotModel;
             }
             
         }
@@ -171,4 +210,13 @@ namespace AMLA
             return columnData;
         }
     }
+
+    /*public class MainViewModel
+    {
+        public MainViewModel()
+        {
+
+        }
+    }*/
+
 }

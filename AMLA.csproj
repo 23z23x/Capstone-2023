@@ -12,6 +12,7 @@
     <PackageReference Include="Accord.MachineLearning" Version="3.8.0" />
     <PackageReference Include="EPPlus" Version="6.2.2" />
     <PackageReference Include="GeneticSharp" Version="3.1.4" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.1.2" />
   </ItemGroup>
 
 </Project>

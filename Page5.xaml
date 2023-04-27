@@ -17,6 +17,6 @@
                    " VerticalAlignment="Top" Height="65" Width="652" FontSize="15"/>
         <Button Content="Click to upload file" HorizontalAlignment="Left" Margin="51,281,0,0" VerticalAlignment="Top" Width="182" x:Name="uploadfile" Click="FileButton_Clicked"/>
         <Button Content="Calculate" HorizontalAlignment="Left" Margin="434,267,0,0" VerticalAlignment="Top" Height="38" Width="266" Click="CalcButton_Clicked"/>
-        <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="434,344,0,0" TextWrapping="Wrap" Text="Your Result Will Apear here" VerticalAlignment="Top" Height="28" Width="266" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="333,326,0,0" TextWrapping="Wrap" Text="Your Results Will Apear here" VerticalAlignment="Top" Height="114" Width="457" FontSize="18" TextAlignment="Left"/>
     </Grid>
 </Page>
