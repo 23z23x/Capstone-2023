@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AprioriExplanation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GeneticExplanation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +33,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AprioriExplanation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="GeneticExplanation.xaml">
       <SubType>Designer</SubType>
     </Page>

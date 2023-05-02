@@ -17,5 +17,7 @@ Building The Project:
 
 TO DO:
 
-	More input testing for Genetic and Naive Bayes (Specifically column headers in Naive Bayes)
+	Add CART
+
+	CART more info page
 
