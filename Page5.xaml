@@ -13,10 +13,10 @@
                    Linear Regression algorithms make associations between independent and dependent variables. Given a set of real measurements, (the test data) the algorithm can predict the outcome given a new set of independent variables as input. The output is the predicted values of the dependent variables.
             " VerticalAlignment="Top" Height="86" Width="652" FontSize="15"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,149,0,0" TextWrapping="Wrap" Text="
-                   To start, upload a csv file where the first line of the first column is your dependent variable name, followed by its values. The following columns should be any number of independent variables in the same format.
-                   " VerticalAlignment="Top" Height="65" Width="652" FontSize="15"/>
+                   To start, upload a csv file where the first column contains your independent input values, and the second column contains your expected output values. The resulting output will your learned model with the difference between the expected and predicted outputs. Aswell as a scatter plot and best line fit of the predicted data. Plese make sure both columns have the same number of values.
+                   " VerticalAlignment="Top" Height="102" Width="652" FontSize="15"/>
         <Button Content="Click to upload file" HorizontalAlignment="Left" Margin="51,281,0,0" VerticalAlignment="Top" Width="182" x:Name="uploadfile" Click="FileButton_Clicked"/>
         <Button Content="Calculate" HorizontalAlignment="Left" Margin="434,267,0,0" VerticalAlignment="Top" Height="38" Width="266" Click="CalcButton_Clicked"/>
-        <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="434,344,0,0" TextWrapping="Wrap" Text="Your Result Will Apear here" VerticalAlignment="Top" Height="28" Width="266" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="333,326,0,0" TextWrapping="Wrap" Text="Your Results Will Apear here" VerticalAlignment="Top" Height="114" Width="457" FontSize="18" TextAlignment="Left"/>
     </Grid>
 </Page>
