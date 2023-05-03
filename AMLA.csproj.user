@@ -10,6 +10,9 @@
     <Compile Update="AprioriExplanation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="CARTExplanation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GeneticExplanation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="AprioriExplanation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="CARTExplanation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GeneticExplanation.xaml">

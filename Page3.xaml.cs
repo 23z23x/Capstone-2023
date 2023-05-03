@@ -246,6 +246,10 @@ namespace AMLA
                     result.Text = string.Join(",", bestChrom.GetGenes());
                 }
             }
+            else
+            {
+                MessageBox.Show("Please check if query is valid (integer)", "Invalid Query", MessageBoxButton.OK);
+            }
         }
 
     }
