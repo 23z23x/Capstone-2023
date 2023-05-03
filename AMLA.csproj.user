@@ -16,6 +16,9 @@
     <Compile Update="GeneticExplanation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="LinearRegressionExplanation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="NaiveBayesExplanation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GeneticExplanation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LinearRegressionExplanation.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

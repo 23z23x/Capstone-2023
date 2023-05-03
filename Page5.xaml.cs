@@ -43,6 +43,17 @@ namespace AMLA
             filegood = false;
         }
 
+        private void ToLinearRegressionExplanation_Click(object sender, RoutedEventArgs e)
+        {
+            var parentWindow = Window.GetWindow(this);
+
+            var frame = parentWindow.FindName("MainFrame") as Frame;
+
+            LinearRegressionExplanation home = new LinearRegressionExplanation();
+
+            frame.NavigationService.Navigate(home);
+        }
+
         private void ToHome_Click(object sender, RoutedEventArgs e)
         {
             var parentWindow = Window.GetWindow(this);
@@ -63,7 +74,7 @@ namespace AMLA
             if (openFileDialog.ShowDialog() == true)
             {
                 string file = openFileDialog.FileName;
-                
+
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 FileInfo fileInfo = new FileInfo(file); // gather file info and create new excel package
                 using (var excelPackage = new ExcelPackage(fileInfo))
@@ -75,9 +86,9 @@ namespace AMLA
                     int numRows = 0;
                     object valTest = 0;
 
-                    for(int col = 1; col <= columnCount; col++)
+                    for (int col = 1; col <= columnCount; col++)
                     {
-                        for(int row = 1; row <= rowCount; row++) 
+                        for (int row = 1; row <= rowCount; row++)
                         {
                             valTest = worksheet.Cells[row, col].Value;
                             if (!string.IsNullOrEmpty(worksheet.Cells[row, col].Text) && (valTest is double || valTest is int)) // iterate through each columns rows and check for valid row value
@@ -120,7 +131,7 @@ namespace AMLA
                 double[] inputs = new double[data.GetLength(1)];
                 double[] outputs = new double[data.GetLength(1)];
 
-                for(int i = 0; i < data.GetLength(1); i++)
+                for (int i = 0; i < data.GetLength(1); i++)
                 {
                     inputs[i] = data[0, i];
                     outputs[i] = data[1, i];
@@ -160,7 +171,7 @@ namespace AMLA
                 inputs_plot.MarkerType = MarkerType.Circle;
                 inputs_plot.MarkerSize = 5;
 
-                for(int i = 0; i < outputs.Length; i++)
+                for (int i = 0; i < outputs.Length; i++)
                 {
                     inputs_plot.Points.Add(new ScatterPoint(inputs[i], predicted[i]));
                 }
@@ -172,7 +183,7 @@ namespace AMLA
 
                 plotView.Model = plotModel;
             }
-            
+
         }
 
         public double[,] GetDataSourceFromFile(string fileName)
@@ -194,7 +205,7 @@ namespace AMLA
                 columnData = new double[numColumns, numRows];
 
                 // Loop through the columns in the row and print the values
-                for(int column = 0; column < numColumns; column++)
+                for (int column = 0; column < numColumns; column++)
                 {
                     for (int row = 0; row < numRows; row++)
                     {
@@ -210,13 +221,4 @@ namespace AMLA
             return columnData;
         }
     }
-
-    /*public class MainViewModel
-    {
-        public MainViewModel()
-        {
-
-        }
-    }*/
-
 }
