@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AMLA"
-        mc:Ignorable="d"
+        xmlns:local="clr-namespace:AMLA" xmlns:oxy="http://oxyplot.org/wpf"
+      mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="800"
         Title="Page5">
-    
+
     <Grid>
         <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToHome_Click"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,23,0,0" TextWrapping="Wrap" Text="Linear Regression" VerticalAlignment="Top" Height="47" Width="356" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
@@ -15,11 +15,12 @@
                    Linear Regression algorithms make associations between independent and dependent variables. Given a set of real measurements, (the test data) the algorithm can predict the outcome given a new set of independent variables as input. The output is the predicted values of the dependent variables.
             " VerticalAlignment="Top" Height="86" Width="652" FontSize="15"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,149,0,0" TextWrapping="Wrap" Text="
-                   To start, upload a csv file where the first column contains your independent input values, and the second column contains your expected output values. The resulting output will be your learned model with the difference between the expected and predicted outputs. Aswell as a scatter plot and best line fit of the predicted data. Please make sure both columns have the same number of values.
+                   To start, upload a csv file where the first column contains your independent input values, and the second column contains your expected output values. The resulting output will be your learned model with the difference between the expected and predicted outputs. Aswell as a scatter plot and best line fit of your data. Please make sure both columns have the same number of values.
                    " VerticalAlignment="Top" Height="102" Width="652" FontSize="15"/>
         <Button Content="Click to upload file" HorizontalAlignment="Left" Margin="51,281,0,0" VerticalAlignment="Top" Width="182" x:Name="uploadfile" Click="FileButton_Clicked"/>
         <Button Content="Calculate" HorizontalAlignment="Left" Margin="434,267,0,0" VerticalAlignment="Top" Height="38" Width="266" Click="CalcButton_Clicked"/>
-        <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="333,326,0,0" TextWrapping="Wrap" Text="Your Results Will Apear here" VerticalAlignment="Top" Height="114" Width="457" FontSize="18" TextAlignment="Left"/>
+        <TextBlock x:Name="resultbox" HorizontalAlignment="Left" Margin="335,326,0,0" TextWrapping="Wrap" Text="Your Results Will Apear here" VerticalAlignment="Top" Height="114" Width="455" FontSize="16" TextAlignment="Center"/>
         <Button Content="More Info" HorizontalAlignment="Left" Margin="661,10,0,0" VerticalAlignment="Top" Height="48" Width="129" Click="ToLinearRegressionExplanation_Click"/>
+        <Button Content="Inspect Graph" HorizontalAlignment="Left" Margin="78,359,0,0" VerticalAlignment="Top" Height="48" Width="128" Click="ToGraph_Clicked"/>
     </Grid>
 </Page>

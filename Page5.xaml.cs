@@ -27,6 +27,8 @@ using OxyPlot;
 using OxyPlot.Wpf;
 using OxyPlot.Series;
 using OxyPlot.Axes;
+using System.Windows.Controls.Primitives;
+using System.Security.Cryptography;
 
 namespace AMLA
 {
@@ -36,11 +38,20 @@ namespace AMLA
     public partial class Page5 : Page
     {
         bool filegood;
+        bool calc_clicked;
         string filename;
+        double[] inputs;
+        double[] predicted;
+        double[] outputs;
+        double x0;
+        double x1; 
+        double y0;
+        double y1;
         public Page5()
         {
             InitializeComponent();
             filegood = false;
+            calc_clicked = false;
         }
 
         private void ToLinearRegressionExplanation_Click(object sender, RoutedEventArgs e)
@@ -69,7 +80,7 @@ namespace AMLA
         private void FileButton_Clicked(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "csv (*.csv)|*.csv|xlsx (*.xlsx)|*.xlsx";
+            openFileDialog.Filter = "xlsx (*.xlsx)|*.xlsx";
 
             if (openFileDialog.ShowDialog() == true)
             {
@@ -128,8 +139,8 @@ namespace AMLA
             if (filegood)
             {
                 double[,] data = GetDataSourceFromFile(filename);
-                double[] inputs = new double[data.GetLength(1)];
-                double[] outputs = new double[data.GetLength(1)];
+                inputs = new double[data.GetLength(1)];
+                outputs = new double[data.GetLength(1)];
 
                 for (int i = 0; i < data.GetLength(1); i++)
                 {
@@ -137,55 +148,64 @@ namespace AMLA
                     outputs[i] = data[1, i];
                 }
 
-                // Transform inputs to logarithms
-                double[] logx = Accord.Math.Matrix.Log(inputs);
-
                 // Use Ordinary Least Squares to learn the regression
                 OrdinaryLeastSquares ols = new OrdinaryLeastSquares();
 
                 // Use OLS to learn the simple linear regression
-                SimpleLinearRegression lr = ols.Learn(logx, outputs);
+                SimpleLinearRegression lr = ols.Learn(inputs, outputs);
 
                 // Compute predicted values for inputs
-                double[] predicted = lr.Transform(logx);
+                predicted = lr.Transform(inputs);
 
                 // Get an expression representing the learned regression model
-                // We just have to remember that 'x' will actually mean 'log(x)'
                 string result = lr.ToString("N4", CultureInfo.InvariantCulture);
                 double slope = lr.Slope;
                 double intercept = lr.Intercept;
 
+                // compute best fit line 
+                x0 = inputs.Min();
+                x1 = inputs.Max();
+                y0 = slope * x0 + intercept;
+                y1 = slope * x1 + intercept;
+
                 // The mean squared error between the expected and the predicted is
                 double error = new SquareLoss(outputs).Loss(predicted);
                 resultbox.Text = "Learned Regression Model: " + result + "\nSlope: " + slope + "\nIntercept: " + intercept + "\nMean Squared Error: " + error.ToString();
-
-                PlotView plotView = new PlotView();
-
-                // Create a new plot model
-                PlotModel plotModel = new PlotModel();
-                plotModel.Title = "My Plot";
-                plotModel.PlotType = PlotType.XY;
-
-                ScatterSeries inputs_plot = new ScatterSeries();
-                //inputs_plot.Title = "Inputs ";
-                inputs_plot.MarkerType = MarkerType.Circle;
-                inputs_plot.MarkerSize = 5;
-
-                for (int i = 0; i < outputs.Length; i++)
-                {
-                    inputs_plot.Points.Add(new ScatterPoint(inputs[i], predicted[i]));
-                }
-                plotModel.Series.Add(inputs_plot);
-
-                // Customize the appearance of the plot
-                plotModel.Axes.Add(new LinearAxis { Title = "Inputs", Position = AxisPosition.Bottom });
-                plotModel.Axes.Add(new LinearAxis { Title = "Predicted Ouputs", Position = AxisPosition.Left });
-
-                plotView.Model = plotModel;
+                calc_clicked = true;
             }
 
         }
 
+        private void ToGraph_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (calc_clicked)
+            {
+                Graph plot = new Graph();
+                for (int i = 0; i < outputs.Length; i++)
+                {
+                    // plot original inputs and outputs
+                    plot.s1.Points.Add(new DataPoint(inputs[i], outputs[i]));
+                }
+                plot.s2.Points.Add(new DataPoint(x0, y0));
+                plot.s2.Points.Add(new DataPoint(x1, y1));
+                plot.graph.Series.Add(plot.s1);
+                plot.graph.Series.Add(plot.s2);
+                plot.ScatterModel = plot.graph;
+
+                var parentWindow = Window.GetWindow(this);
+
+                var frame = parentWindow.FindName("MainFrame") as Frame;
+
+                frame.NavigationService.Navigate(plot);
+            }
+            else
+            {
+                MessageBox.Show("Please upload a file and perform a calculation before trying to access the graph.", "Invalid Input", MessageBoxButton.OK);
+                calc_clicked = false;
+                return;
+            }
+
+        }
         public double[,] GetDataSourceFromFile(string fileName)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
