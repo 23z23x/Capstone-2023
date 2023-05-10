@@ -28,9 +28,10 @@ namespace AMLA
         public LineSeries s2;
         public Graph()
         {
+            // create plotmodel and line series features 
             InitializeComponent();
             DataContext = this;
-            graph = new PlotModel { Title = "Scatter plot"};
+            graph = new PlotModel { Title = "Scatter plot"}; // create new graph
             s1 = new LineSeries
             {
                 StrokeThickness = 0,
@@ -46,8 +47,9 @@ namespace AMLA
                 MarkerType = MarkerType.None
             };
         }
-        public PlotModel ScatterModel { get; set; }
+        public PlotModel ScatterModel { get; set; } // get scatter model
 
+        // return to linear regression page
         private void BackGraph_Clicked(object sender, RoutedEventArgs e)
         {
             var parentWindow = Window.GetWindow(this);

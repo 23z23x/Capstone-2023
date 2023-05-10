@@ -24,11 +24,6 @@ using OfficeOpenXml;
 using System.Globalization;
 using Accord.Math.Optimization.Losses;
 using OxyPlot;
-using OxyPlot.Wpf;
-using OxyPlot.Series;
-using OxyPlot.Axes;
-using System.Windows.Controls.Primitives;
-using System.Security.Cryptography;
 
 namespace AMLA
 {
@@ -178,21 +173,21 @@ namespace AMLA
 
         private void ToGraph_Clicked(object sender, RoutedEventArgs e)
         {
-            if (calc_clicked)
+            if (calc_clicked) // once calculation has been made, user can migrate to graph
             {
-                Graph plot = new Graph();
-                for (int i = 0; i < outputs.Length; i++)
+                Graph plot = new Graph(); // create new graph
+                for (int i = 0; i < outputs.Length; i++) // add data points to gra[h
                 {
                     // plot original inputs and outputs
                     plot.s1.Points.Add(new DataPoint(inputs[i], outputs[i]));
                 }
-                plot.s2.Points.Add(new DataPoint(x0, y0));
+                plot.s2.Points.Add(new DataPoint(x0, y0)); // add best fit line
                 plot.s2.Points.Add(new DataPoint(x1, y1));
-                plot.graph.Series.Add(plot.s1);
+                plot.graph.Series.Add(plot.s1); // plot graph
                 plot.graph.Series.Add(plot.s2);
                 plot.ScatterModel = plot.graph;
 
-                var parentWindow = Window.GetWindow(this);
+                var parentWindow = Window.GetWindow(this); // change windows
 
                 var frame = parentWindow.FindName("MainFrame") as Frame;
 

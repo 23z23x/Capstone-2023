@@ -12,12 +12,11 @@ Building The Project:
 
 	Dependencies for Naive Bayes : Accord.MachineLearning
 
+	Dependencies for Apriori : Cotur.DataMining.Association, Accord.Math
+
+	Dependencies for CART : Accord.MachineLearning.DecisionTrees, Accord.Math.Optimization.Losses, Accord.Statistics.Filters
+
+	Dependencies for Linear Regression : Accord.Statistics.Models.Regression.Linear, Accord.Math, OfficeOpenXml, OxyPlot
+
 	You can install all dependencies using the NuGet package manager for the .NET framework
-
-
-TO DO:
-
-	Add CART
-
-	CART more info page
 
